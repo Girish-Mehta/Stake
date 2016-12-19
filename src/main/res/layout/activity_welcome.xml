@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/completewhite"
+    tools:context="in.edamus.root.stake.welcome">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wimg"
+        android:text="Stake"
+        android:textSize="110sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register"
+        android:text="Sign In with Google"
+        android:textAlignment="center"
+        android:textColor="@color/completewhite"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
+        android:layout_below="@id/wimg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
+
+</RelativeLayout>

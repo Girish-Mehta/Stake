@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Stake</string>
+    <string name="welcome">Welcome to Stake</string>
+    <string name="splayer">Single Player</string>
+    <string name="mplayer">Multi-Player</string>
+    <string name="back">Back</string>
+    <string name="opp">Opponent Color: White</string>
+    <string name="choice">Choose your color: </string>
+    <string name="go">Go</string>
+    <string name="win">+3</string>
+    <string name="loss">-1</string>
+    <string name="winstatus">You Win</string>
+    <string name="lossstatus">You Loose</string>
+    <string name="saved_default">0</string>
 </resources>

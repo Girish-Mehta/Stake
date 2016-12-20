@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to Stake"
+        android:text="@string/welcome"
         android:fontFamily="serif-monospace"
         android:textSize="25dp"
 
@@ -35,28 +35,27 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/back"
+                    android:text="@string/back"
+                    android:fontFamily="serif-monospace"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/back"
-                android:text="Back"
                 android:fontFamily="serif-monospace"
                 android:layout_margin="5dp"
-                android:layout_marginTop="15dp" />
+                android:text="@string/opp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif-monospace"
                 android:layout_margin="5dp"
-                android:text="Opponent Color: White "/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif-monospace"
-                android:layout_margin="5dp"
-                android:text="Choose your color: "/>
+                android:text="@string/choice"/>
 
             <GridLayout
                 android:layout_width="wrap_content"
@@ -93,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/go"
-                android:text="Go"
+                android:text="@string/go"
                 android:textSize="20sp"
                 android:fontFamily="monospace"
                 android:textStyle="bold"
@@ -108,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/splay"
-            android:text="Single Player"
+            android:text="@string/splayer"
             android:fontFamily="monospace"
             android:padding="20dp"
             android:background="@drawable/textview_design"
@@ -117,23 +116,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/mplay"
-            android:text="Multi-Player"
+            android:text="@string/mplayer"
             android:fontFamily="monospace"
             android:padding="20dp"
             android:background="@drawable/textview_design"
             android:layout_margin="30dp"/>
     </LinearLayout>
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" -->
-        <!--android:text="Single Player"-->
-        <!--android:layout_margin="30dp"-->
-        <!--android:padding="20dp"-->
-        <!--android:layout_weight="1"/>-->
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Multi-Player"-->
-        <!--android:layout_weight="1"/>-->
-    <!---->
 </LinearLayout>

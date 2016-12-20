@@ -14,20 +14,20 @@ import java.util.Random;
 
 public class userPannel extends AppCompatActivity {
 
-    private TextView splay;
-    private TextView mplay;
-    private TextView go;
-    private TextView colora;
-    private TextView colorb;
-    private TextView colorc;
-    private TextView colord;
-    private TextView back;
-    private LinearLayout splayground;
-    private LinearLayout playground;
-    private LinearLayout main;
-    private int result;
-    private int sword;
-    private boolean check;
+    private TextView splay;                     //Single Player Mode Button
+    private TextView mplay;                     //Multi Player Mode Butotn
+    private TextView go;                        //Start Game Button
+    private TextView colora;                    //Color 1- Yellow
+    private TextView colorb;                    //Color 2- Girlish
+    private TextView colorc;                    //Color 3- Black
+    private TextView colord;                    //Color 4- Cyan Blue
+    private TextView back;                      //Back Button
+    private LinearLayout splayground;           //Single Player console
+    private LinearLayout playground;            //Game Console
+    private LinearLayout main;                  //Main Activity
+    private int result;                         //Decision element
+    private int sword;                          //User choosen color
+    private boolean check;                      //Kind of a flag
 
 
 
@@ -39,6 +39,7 @@ public class userPannel extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
+        //Declaring variables
 
         go = (TextView) findViewById(R.id.go);
         back = (TextView) findViewById(R.id.back);
@@ -57,7 +58,7 @@ public class userPannel extends AppCompatActivity {
         splay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Enable Single Player Mode
+                // Enable Single Player Console
                 splay.setVisibility(View.GONE);
                 mplay.setVisibility(View.GONE);
                 splayground.setVisibility(View.VISIBLE);
@@ -68,7 +69,7 @@ public class userPannel extends AppCompatActivity {
         mplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Enable Multi Player Mode
+                // Enable Multi Player Console
 
             }
         });
@@ -76,6 +77,7 @@ public class userPannel extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Take back to Game Console
                 splayground.setVisibility(View.GONE);
                 splay.setVisibility(View.VISIBLE);
                 mplay.setVisibility(View.VISIBLE);
@@ -85,6 +87,7 @@ public class userPannel extends AppCompatActivity {
         colora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set user choosen color
                 go.setVisibility(View.VISIBLE);
                 go.setBackgroundColor(Color.parseColor("#ffea00"));
                 sword = Color.parseColor("#ffea00");
@@ -94,6 +97,7 @@ public class userPannel extends AppCompatActivity {
         colorb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set user choosen color
                 go.setVisibility(View.VISIBLE);
                 go.setBackgroundColor(Color.parseColor("#FF4081"));
                 sword = Color.parseColor("#FF4081");
@@ -103,6 +107,7 @@ public class userPannel extends AppCompatActivity {
         colorc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set user choosen color
                 go.setVisibility(View.VISIBLE);
                 go.setBackgroundColor(Color.BLACK);
                 sword = Color.BLACK;
@@ -112,6 +117,7 @@ public class userPannel extends AppCompatActivity {
         colord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set user choosen color
                 go.setVisibility(View.VISIBLE);
                 go.setBackgroundColor(Color.parseColor("#4dd0e1"));
                 sword = Color.parseColor("#4dd0e1");
@@ -121,13 +127,15 @@ public class userPannel extends AppCompatActivity {
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                //generate a random number here
+                //generate a random number here for the dicision element
                 Random randomGenerator = new Random();
                 result = randomGenerator.nextInt(10);
+                //Clear ground
                 playground.setVisibility(View.GONE);
-                CountDownTimer cdt = new CountDownTimer(4000,500) {
+                CountDownTimer cdt = new CountDownTimer(4000,250) {
                     @Override
                     public void onTick(long millisUntilFinished) {
+                        //Flicker colors
                         if (check == false)
                         {
                             main.setBackgroundColor(Color.WHITE);
@@ -143,19 +151,22 @@ public class userPannel extends AppCompatActivity {
 
                     @Override
                     public void onFinish() {
+                        //Show result
                         if (result%2 != 0)
                         {
+                            //If user wins
                             main.setBackgroundColor(sword);
                             updateScore('p');
                             Toast.makeText(userPannel.this,"You Win",Toast.LENGTH_LONG).show();
-                            reload();
+                            reload("win");
                         }
                         else
                         {
+                            //If user looses
                             main.setBackgroundColor(Color.WHITE);
                             updateScore('n');
                             Toast.makeText(userPannel.this,"Oops, You Loose",Toast.LENGTH_LONG).show();
-                            reload();
+                            reload("loss");
                         }
 
                     }
@@ -167,6 +178,8 @@ public class userPannel extends AppCompatActivity {
 
     }
 
+
+    //Update Scores for Single Player Mode
     private void updateScore(char r)
     {
         if (r == 'p')
@@ -179,8 +192,8 @@ public class userPannel extends AppCompatActivity {
         }
     }
 
-
-    private void reload()
+    //Intent to result activity
+    private void reload(final String status)
     {
         CountDownTimer cdt = new CountDownTimer(2000,1000) {
             @Override
@@ -189,7 +202,8 @@ public class userPannel extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent = new Intent(userPannel.this,userPannel.class);
+                Intent intent = new Intent(userPannel.this,result.class);
+                intent.putExtra("status",status);
                 startActivity(intent);
                 finish();
             }
@@ -200,7 +214,7 @@ public class userPannel extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-
+        //To prevent user from going to the previous screen
     }
 
 }
